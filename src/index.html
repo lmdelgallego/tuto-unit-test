@@ -34,12 +34,14 @@
   </div>
 
   <hr>
-
+  
   <div class="footer">
     <div class="container">
       <p>from @bradoncode | movie data from http://www.omdbapi.com</p>
     </div>
   </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.4/lodash.min.js"></script>
   <script type="text/javascript" src="https://code.angularjs.org/1.6.6/angular.min.js"></script>
   <script type="text/javascript" src="https://code.angularjs.org/1.6.6/angular-route.min.js"></script>
@@ -51,6 +53,28 @@
   <script type="text/javascript" src="movie-app/app.js"></script>
   <script type="text/javascript" src="movie-app/search.controller.js"></script>
   <script type="text/javascript" src="movie-app/results.controller.js"></script>
+
+<!-- 
+  <script>
+      
+      var api_key = '386d9bc2541c487c3ef4666ee5449ab2';
+      
+      $(document).ready(function(){
+
+        
+        $.ajax({
+          url: 'http://api.themoviedb.org/3/search/movie?api_key=' + api_key + '&query=fight+club',
+          dataType: 'jsonp',
+          jsonpCallback: 'testing'
+        }).done(function(response) {
+          for (var i = 0; i < response.results.length; i++) {
+            $('#search_results').append('<li>' + response.results[i].title + '</li>');
+          }
+        });
+      });
+      
+        </script> -->
+
 
 </body>
 </html>

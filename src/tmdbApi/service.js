@@ -8,7 +8,7 @@
   tmdbApi.$inject = ['$http', '$q', 'Restangular'];
 
   function tmdbApi($http, $q, Restangular) {
-    var baseUrl = 'https://api.themoviedb.org/3/';
+    var baseUrl = 'http://api.themoviedb.org/3/';
     var apiKey = '?api_key=386d9bc2541c487c3ef4666ee5449ab2&';
 
     var service = {
@@ -23,12 +23,7 @@
       var def = $q.defer();
       $http({
           method: 'GET',
-          url: baseUrl + 'search/movie/' + apiKey + 'query=' + encodeURIComponent(query),
-          dataType: 'JSONP',
-          headers:{
-            "Content-Type": "application/json",
-            "Accept": "application/json"
-          },
+          url: baseUrl + 'search/movie' + apiKey + 'query=' + encodeURIComponent(query)
         })
         .then(function (data) {
           def.resolve(data.data);

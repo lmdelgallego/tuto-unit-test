@@ -12,7 +12,8 @@
 
     tmdbApi.search(query)
     .then(function (resolve) {
-      $scope.results = resolve.Search;
+      console.log(resolve);
+      $scope.results = resolve.results;
     })
     .catch(function(){
       $scope.errorMessage = "Something went wrong!";
