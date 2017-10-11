@@ -1,5 +1,5 @@
 describe('Results Controller', function () {
-  var results = {
+  var results = {"results": {
     "Search": [{
         "Title": "Star Wars: Episode IV - A New Hope",
         "Year": "1977",
@@ -19,7 +19,7 @@ describe('Results Controller', function () {
         "Type": "movie"
       }
     ]
-  };
+  }};
 
   var $controller;
   var $location;
@@ -27,6 +27,7 @@ describe('Results Controller', function () {
   var $rootScope;
   var $scope;
   var tmdbApi;
+  var $this;
 
 
   beforeEach(module('tmdb'));
@@ -48,13 +49,11 @@ describe('Results Controller', function () {
       return def.promise;
     });
     $location.search('q', 'Star Wars');
-    $controller('ResultsController', {
-      $scope: $scope
-    });
-    $rootScope.$apply();
-    expect($scope.results[0].Title).toBe(results.Search[0].Title);
-    expect($scope.results[1].Title).toBe(results.Search[1].Title);
-    expect($scope.results[2].Title).toBe(results.Search[2].Title);
+    $controller('ResultsController', { $scope: $scope });
+    $rootScope.$apply(); 
+    expect($scope.results.Search[0].Title).toBe(results.results.Search[0].Title);
+    expect($scope.results.Search[1].Title).toBe(results.results.Search[1].Title);
+    expect($scope.results.Search[2].Title).toBe(results.results.Search[2].Title);
     expect(tmdbApi.search).toHaveBeenCalledWith('Star Wars')
   });
 
