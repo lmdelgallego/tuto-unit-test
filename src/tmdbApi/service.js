@@ -9,7 +9,7 @@
 
   function tmdbApi($http, $q, Restangular) {
     var baseUrl = 'http://api.themoviedb.org/3/';
-    var apiKey = '?api_key=386d9bc2541c487c3ef4666ee5449ab2&';
+    var apiKey = '?api_key=386d9bc2541c487c3ef4666ee5449ab2';
 
     var service = {
       search: search,
@@ -23,7 +23,7 @@
       var def = $q.defer();
       $http({
           method: 'GET',
-          url: baseUrl + 'search/movie' + apiKey + 'query=' + encodeURIComponent(query)
+          url: baseUrl + 'search/movie' + apiKey + '&query=' + encodeURIComponent(query)
         })
         .then(function (data) {
           def.resolve(data.data);
@@ -39,7 +39,7 @@
       var def = $q.defer();
       $http({
           method: 'GET',
-          url: baseUrl + 'movie/' + id + '/' + apiKey
+          url: baseUrl + 'movie/' + id  + apiKey
         })
         .then(function (data) {
           def.resolve(data.data);
