@@ -2,12 +2,12 @@
   'use strict';
 
   angular
-    .module('tmdb', ['restangular'])
+    .module('tmdb')
     .factory('tmdbApi', tmdbApi);
 
-  tmdbApi.$inject = ['$http', '$q','Restangular'];
+  tmdbApi.$inject = ['$http', '$q', 'Restangular'];
 
-  function tmdbApi($http, $q,Restangular) {
+  function tmdbApi($http, $q, Restangular) {
     var baseUrl = 'https://api.themoviedb.org/3/';
     var apiKey = '?api_key=386d9bc2541c487c3ef4666ee5449ab2&';
 

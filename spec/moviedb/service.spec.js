@@ -65,10 +65,12 @@ describe('tmdb service', function () {
   };
   var tmdbApi = {};
   var $httpBackend;
+  var Restangular;
   beforeEach(module('tmdb'));
-  beforeEach(inject(function (_tmdbApi_, _$httpBackend_) {
+  beforeEach(inject(function (_tmdbApi_, _$httpBackend_,_Restangular_) {
     tmdbApi = _tmdbApi_;
     $httpBackend = _$httpBackend_;
+    Restangular = _Restangular_;
   }));
 
   it('should return search movie data', function () {
