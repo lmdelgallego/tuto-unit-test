@@ -26,11 +26,11 @@
         findMovie(results[0]);
 
         $interval(function(){
-          ++idx; 
+          ++idx;
           findMovie(results[idx % results.length]);
         },5000)
-      // }); 
-    
+      // });
+
 
     activate();
 

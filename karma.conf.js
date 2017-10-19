@@ -42,8 +42,14 @@ module.exports = function(config) {
     // test results reporter to use
     // possible values: 'dots', 'progress'
     // available reporters: https://npmjs.org/browse/keyword/karma-reporter
-    reporters: ['progress'],
-
+    reporters: ['mocha'],
+    summaryReporter: {
+       // 'failed', 'skipped' or 'all'
+       show: 'all',
+       // Limit the spec label to this length
+       specLength: 50,
+       overviewColumn: true
+    },
 
     // web server port
     port: 9876,
